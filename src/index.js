@@ -1,8 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import store from "./stores/configureStore";
+import App from "./components/App";
+import "bootstrap/dist/css/bootstrap.min.css";
+// import "./bootstrap-themes/litera.min.css";
+import registerServiceWorker from "./registerServiceWorker";
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const Main = (
+  <Provider store={store}>
+    <App />
+  </Provider>
+);
+
+ReactDOM.render(Main, document.getElementById("root"));
 registerServiceWorker();
