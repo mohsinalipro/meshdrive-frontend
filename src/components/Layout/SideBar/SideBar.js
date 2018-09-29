@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Button } from "reactstrap";
 const SideBar = () => {
-  return <div style={styles} />;
+  return <div style={styles}>Sidebar</div>;
 };
 
 const styles = {
