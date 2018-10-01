@@ -3,9 +3,12 @@ import SideBar from "../../Layout/SideBar/SideBar";
 import { Container } from "reactstrap";
 import File from "../../File";
 import FileItem from "../../FileItem/FileItem";
+import {connect} from 'react-redux';
+import fetchFiles from '../../../actions/fetchFiles';
 class Home extends Component {
   render() {
-    const files = [
+    const files = this.props.files;
+    /*[
       {
         fileID: 32,
         fileExt: "folder",
@@ -27,7 +30,7 @@ class Home extends Component {
         fileSize: 124,
         drive: "dropbox"
       }
-    ];
+    ];*/
 
     const mapFiles = files.map(file => (
       <FileItem
@@ -59,4 +62,13 @@ class Home extends Component {
     );
   }
 }
-export default Home;
+
+function mapStateToProps(state)
+{
+  return (
+    {
+      files : state.files
+    }
+  )
+}
+export default connect(mapStateToProps,{fetchFiles})(Home);
