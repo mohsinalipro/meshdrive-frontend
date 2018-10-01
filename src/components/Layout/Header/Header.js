@@ -1,6 +1,10 @@
-import React from "react";
+import React, { Component } from "react";
 import NavBar from "./NavBar/NavBar";
 
-export default () => {
-  return <div>Header</div>;
-};
+class Header extends Component {
+  render() {
+    return <NavBar />;
+  }
+}
+
+export default Header;
