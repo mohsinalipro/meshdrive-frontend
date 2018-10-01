@@ -5,7 +5,13 @@ import File from "../../File";
 import FileItem from "../../FileItem/FileItem";
 import {connect} from 'react-redux';
 import fetchFiles from '../../../actions/fetchFiles';
+import PropTypes from 'prop-types';
 class Home extends Component {
+  componentDidMount()
+  {
+    this.props.fetchFiles();
+  }
+
   render() {
     const files = this.props.files;
     /*[
@@ -63,6 +69,11 @@ class Home extends Component {
   }
 }
 
+
+Home.propTypes={
+  files: PropTypes.array.isRequired,
+  fetchFiles : PropTypes.func.isRequired
+}
 function mapStateToProps(state)
 {
   return (
