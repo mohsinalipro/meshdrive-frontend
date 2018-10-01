@@ -1,3 +1,7 @@
 /* * {
   outline: 1px solid red;
 } */
+
+.nav-item .fas {
+  font-size: 1.8rem;
+}

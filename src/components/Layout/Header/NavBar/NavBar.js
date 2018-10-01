@@ -10,8 +10,14 @@ import {
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem
+  DropdownItem,
+  Form,
+  Input,
+  Button,
+  InputGroup,
+  InputGroupAddon
 } from "reactstrap";
+import FAIcon from "../../../FontAwesomeIcon/FontAwesomeIcon";
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -35,18 +41,23 @@ class NavBar extends React.Component {
         <Collapse isOpen={this.state.isOpen} navbar>
           <Nav className="ml-auto" navbar>
             <NavItem>
-              <NavLink href="/components/">
-                <FontAwesome name="rocket" />
-              </NavLink>
+              <Form inline>
+                <InputGroup>
+                  <Input />
+                  <InputGroupAddon addonType="append">
+                    <Button>Search</Button>
+                  </InputGroupAddon>
+                </InputGroup>
+              </Form>
             </NavItem>
             <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">
-                GitHub
+              <NavLink href="#">
+                <FAIcon icon="bell" />
               </NavLink>
             </NavItem>
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
-                Options
+                <FAIcon icon="user" />
               </DropdownToggle>
               <DropdownMenu right>
                 <DropdownItem>Option 1</DropdownItem>
