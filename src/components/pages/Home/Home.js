@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import SideBar from "../../Layout/SideBar/SideBar";
 import { connect } from "react-redux";
-import fetchFiles from "../../../actions/fetchFiles";
+import fetchFiles from "../../../actions/files/fetchFiles";
 import PropTypes from "prop-types";
 import FilesList from "../../FilesList/FilesList";
+
 class Home extends Component {
   componentWillMount() {
     console.log(this.props);

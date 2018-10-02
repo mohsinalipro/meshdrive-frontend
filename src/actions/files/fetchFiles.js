@@ -1,4 +1,4 @@
-import FETCH_FILES from "./types";
+import { FETCH_FILES } from "./types";
 
 export const setFiles = files => {
   return {
@@ -6,6 +6,7 @@ export const setFiles = files => {
     payload: files
   };
 };
+
 export default function fetchFiles() {
   return dispatch => {
     fetch("https://jsonplaceholder.typicode.com/users")
