@@ -1,4 +1,4 @@
-import { FETCH_FILES, UPLOAD_FILE } from "../actions/files/types";
+import { FETCH_FILES, UPLOAD_FILE, DELETE_FILE } from "../actions/files/types";
 
 const initialFilesState = [];
 
@@ -9,7 +9,16 @@ export default function(state = initialFilesState, action) {
 
     case UPLOAD_FILE:
       console.log(action);
-      return [...state, action.payload];
+      return [action.payload];
+
+    case DELETE_FILE:
+    const newState = Object.assign([], state);
+    const indexOfFileToDelete = state.findIndex(files => {
+      return files.id == action.payload
+    })
+    newState.splice(indexOfFileToDelete, 1);
+    return newState;
+
 
     default:
       return state;

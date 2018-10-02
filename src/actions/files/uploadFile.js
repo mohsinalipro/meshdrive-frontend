@@ -1,21 +1,27 @@
 import { UPLOAD_FILE } from "./types";
-
-export const addFile = file => {
+import axios from 'axios';
+export const addFile = fileWithInfo => {
   return {
     type: UPLOAD_FILE,
-    payload: file
+    payload: {
+      'name':fileWithInfo.file.name,
+      'drive':fileWithInfo.drive
+    }
   };
 };
-
-export default function uploadFile(file) {
-  // return dispatch => {
-  //   fetch("https://jsonplaceholder.typicode.com/users")
-  //     .then(res => res.json())
-  //     .then(files => dispatch(addFile(file)))
-  //     .catch(error => console.log(error));
-  // };
-
+export default function uploadFile(fileWithInfo) {
   return dispatch => {
-    dispatch(addFile(file));
+
+  {
+    const formData = new FormData()
+    formData.append('file', fileWithInfo.file);
+    formData.append('drive',fileWithInfo.drive);
+    axios.post('/api/uploadfile', formData,{
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+  }).then(dispatch(addFile(fileWithInfo)));
+
+}
   };
 }

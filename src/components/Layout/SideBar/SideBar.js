@@ -1,6 +1,6 @@
 import React from "react";
-import LeftSidebarContent from "./LeftSideBarContent/LeftSideBarContent";
-import RightSidebarContent from "./RightSideBarContent/RightSideBarContent";
+import LeftSidebarContent from './LeftSidebarContent/LeftSidebarContent';
+import RightSidebarContent from './RightSidebarContent/RightSidebarContent';
 const SideBar = props => {
   return (
     <div style={styles}>

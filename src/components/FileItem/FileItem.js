@@ -37,7 +37,7 @@ class FileItem extends Component {
           }
           onClick={this.toggleActive}
         >
-          <ContextMenuTrigger id={this.props.id.toString()}>
+          <ContextMenuTrigger  id={this.props.id}>
             <div className="d-flex flex-wrap align-items-center">
               <div>
                 <img src="https://via.placeholder.com/64x64" alt="" />
@@ -51,7 +51,7 @@ class FileItem extends Component {
           </ContextMenuTrigger>
         </div>
 
-        <ContextMenu id={this.props.id.toString()}>
+        <ContextMenu  id={this.props.id}>
           <MenuItem data={{ foo: "bar" }} onClick={this.handleClick}>
             Download
           </MenuItem>

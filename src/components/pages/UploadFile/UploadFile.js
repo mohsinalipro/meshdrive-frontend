@@ -11,8 +11,10 @@ class UploadFile extends Component {
     drive: ""
   };
 
+  // correction made 
   handleFileChange = event => {
-    this.setState({ file: event.target.value });
+    this.setState({ file: event.target.files[0] });
+
   };
 
   handleDriveChange = event => {
@@ -22,12 +24,14 @@ class UploadFile extends Component {
   handleSubmit = event => {
     event.preventDefault();
     console.log(event.target.value);
-    const file = {
-      id: uuid,
-      name: this.state.file,
-      drive: this.state.drive
-    };
-    this.props.uploadFile(file);
+
+   const fileWithInfo = {
+     file: this.state.file,
+     drive: this.state.drive
+   }
+
+   console.log(fileWithInfo);
+    this.props.uploadFile(fileWithInfo);
     this.setState({ file: "" });
     alert("File uploaded");
   };
@@ -44,7 +48,7 @@ class UploadFile extends Component {
                   type="file"
                   name="file"
                   id="file"
-                  value={this.state.file}
+                  
                   onChange={this.handleFileChange}
                 />
                 <FormText color="muted">Select a file to upload.</FormText>
