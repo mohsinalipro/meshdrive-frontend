@@ -20,7 +20,7 @@ const FilesList = ({ files }) => {
   });
 
   return (
-    <div className="flex-grow-1 d-flex flex-row flex-wrap">
+    <div className="flex-grow-1 d-flex flex-row flex-wrap justify-content-start ">
       {files.length === 0 ? emptyMessage : filesList}
     </div>
   );
