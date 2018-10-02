@@ -38,7 +38,7 @@ export default class UploadFile extends Component {
             </Form>
           </div>
 
-          <SideBar right>Hello upload</SideBar>
+          {/* <SideBar right>Right UploadFile sidebar</SideBar> */}
         </div>
       </React.Fragment>
     );

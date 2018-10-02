@@ -21,7 +21,7 @@ class Home extends Component {
             <FilesList files={files} />
           </div>
 
-          <SideBar right>Hello World</SideBar>
+          <SideBar right>Right Home Sidebar </SideBar>
         </div>
       </React.Fragment>
     );

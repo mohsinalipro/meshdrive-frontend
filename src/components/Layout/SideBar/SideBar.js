@@ -1,13 +1,13 @@
 import React from "react";
-import LeftSidebarContent from "./LeftSidebarContent/LeftSidebarContent";
-import RightSidebarContent from "./RightSidebarContent/RightSidebarContent";
+import LeftSidebarContent from "./LeftSideBarContent/LeftSideBarContent";
+import RightSidebarContent from "./RightSideBarContent/RightSideBarContent";
 const SideBar = props => {
   return (
     <div style={styles}>
-      {props.left ? (
-        <LeftSidebarContent>{props.children}</LeftSidebarContent>
-      ) : (
+      {props.right ? (
         <RightSidebarContent>{props.children}</RightSidebarContent>
+      ) : (
+        <LeftSidebarContent />
       )}
     </div>
   );
