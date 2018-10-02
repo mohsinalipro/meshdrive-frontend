@@ -11,9 +11,10 @@ const FilesList = ({ files }) => {
     return (
       <FileItem
         key={element.id}
+        id={element.id}
         name={element.name}
+        drive={element.drive}
         size={element.username}
-        drive={element.website}
       />
     );
   });
