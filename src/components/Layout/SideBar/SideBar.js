@@ -1,5 +1,4 @@
-import React, { Component } from "react";
-import { Button } from "reactstrap";
+import React from "react";
 const SideBar = () => {
   return <div style={styles}>Sidebar</div>;
 };

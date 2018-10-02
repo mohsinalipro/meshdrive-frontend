@@ -1,14 +1,11 @@
 import React, { Component } from "react";
 import SideBar from "../../Layout/SideBar/SideBar";
-import { Container } from "reactstrap";
-import File from "../../File";
 import FileItem from "../../FileItem/FileItem";
-import {connect} from 'react-redux';
-import fetchFiles from '../../../actions/fetchFiles';
-import PropTypes from 'prop-types';
+import { connect } from "react-redux";
+import fetchFiles from "../../../actions/fetchFiles";
+import PropTypes from "prop-types";
 class Home extends Component {
-  componentDidMount()
-  {
+  componentDidMount() {
     this.props.fetchFiles();
   }
 
@@ -69,17 +66,16 @@ class Home extends Component {
   }
 }
 
-
-Home.propTypes={
+Home.propTypes = {
   files: PropTypes.array.isRequired,
-  fetchFiles : PropTypes.func.isRequired
+  fetchFiles: PropTypes.func.isRequired
+};
+function mapStateToProps(state) {
+  return {
+    files: state.files
+  };
 }
-function mapStateToProps(state)
-{
-  return (
-    {
-      files : state.files
-    }
-  )
-}
-export default connect(mapStateToProps,{fetchFiles})(Home);
+export default connect(
+  mapStateToProps,
+  { fetchFiles }
+)(Home);
