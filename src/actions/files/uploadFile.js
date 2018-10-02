@@ -1,8 +1,8 @@
-import { FETCH_FILES } from "./types";
+import { UPLOAD_FILE } from "./types";
 
 export const addFile = file => {
   return {
-    type: FETCH_FILES,
+    type: UPLOAD_FILE,
     payload: file
   };
 };
