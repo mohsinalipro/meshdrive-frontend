@@ -1,38 +1,46 @@
 import React, { Component } from "react";
 import { Button, Form, FormGroup, Label, Input, FormText } from "reactstrap";
+import SideBar from "../../Layout/SideBar/SideBar";
 
 export default class UploadFile extends Component {
   render() {
     return (
-      <Form>
-        <FormGroup>
-          <Label for="exampleFile">File</Label>
-          <Input type="file" name="file" id="exampleFile" />
-          <FormText color="muted">
-            This is some placeholder block-level help text for the above input.
-            It's a bit lighter and easily wraps to a new line.
-          </FormText>
-        </FormGroup>
-        <FormGroup tag="fieldset">
-          <legend>Radio Buttons</legend>
-          <FormGroup check>
-            <Label check>
-              <Input type="radio" name="radio1" /> Google Drive
-            </Label>
-          </FormGroup>
-          <FormGroup check>
-            <Label check>
-              <Input type="radio" name="radio1" /> OneDrive
-            </Label>
-          </FormGroup>
-          <FormGroup check disabled>
-            <Label check>
-              <Input type="radio" name="radio1" disabled /> Dropbox
-            </Label>
-          </FormGroup>
-        </FormGroup>
-        <Button>Submit</Button>
-      </Form>
+      <React.Fragment>
+        <div className="d-flex flex-row w-100">
+          <div className="flex-grow-1 d-flex flex-row">
+            <Form>
+              <FormGroup>
+                <Label for="file">File</Label>
+                <Input type="file" name="file" id="file" />
+                <FormText color="muted">Select a file to upload.</FormText>
+              </FormGroup>
+              <FormGroup tag="fieldset">
+                <Label for="drive">Select Drive</Label>
+                <FormGroup check>
+                  <Label check>
+                    <Input type="radio" name="drive" value="googledrive" />{" "}
+                    Google Drive
+                  </Label>
+                </FormGroup>
+                <FormGroup check>
+                  <Label check>
+                    <Input type="radio" name="drive" value="onedrive" />{" "}
+                    OneDrive
+                  </Label>
+                </FormGroup>
+                <FormGroup check>
+                  <Label check>
+                    <Input type="radio" name="drive" value="dropbox" /> Dropbox
+                  </Label>
+                </FormGroup>
+              </FormGroup>
+              <Button>Submit</Button>
+            </Form>
+          </div>
+
+          <SideBar right>Hello upload</SideBar>
+        </div>
+      </React.Fragment>
     );
   }
 }

@@ -8,7 +8,7 @@ const Layout = props => {
   return (
     <React.Fragment>
       <div className="d-flex flex-row">
-        <SideBar />
+        <SideBar right>Sidebar Menus</SideBar>
         <MainContent>
           <div className="d-flex flex-column w-100">
             <Header />
