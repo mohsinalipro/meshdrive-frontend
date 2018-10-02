@@ -35,7 +35,7 @@ class NavBar extends React.Component {
   render() {
     return (
       <Navbar color="white" light expand="md" className="m-3">
-        <h4>Home</h4>
+        <h4>MeshDrive</h4>
         <NavbarToggler onClick={this.toggle} />
         <Collapse isOpen={this.state.isOpen} navbar>
           <Nav className="ml-auto" navbar>
