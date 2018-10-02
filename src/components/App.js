@@ -6,7 +6,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Router basename="https://mohsina.li/showcase/crudapp/">
+        <Router>
           <Layout>
             <Switch>
               <Route path="/" exact component={Home} />

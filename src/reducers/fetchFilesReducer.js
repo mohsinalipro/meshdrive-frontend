@@ -1,13 +1,12 @@
-import FETCH_FILES from '../actions/types';
+import FETCH_FILES from "../actions/types";
 
+const initialFilesState = [];
 
-export default function(state=[] ,action={}){
-    
-switch(action.type){
-    case FETCH_FILES: 
-        return action.files;
-    default: 
-        return state;
-}
-
+export default function(state = initialFilesState, action) {
+  switch (action.type) {
+    case FETCH_FILES:
+      return [...state, ...action.payload];
+    default:
+      return state;
+  }
 }

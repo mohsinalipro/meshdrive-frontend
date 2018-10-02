@@ -1,6 +1,7 @@
 import React from "react";
 import { Row, Col } from "reactstrap";
 export default props => {
+  console.log(props);
   return (
     <Row className="align-items-center m-1 p-1" style={styles.fileItem}>
       <Col sm="4" className="text-center">
