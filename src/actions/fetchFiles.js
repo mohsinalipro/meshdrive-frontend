@@ -1,7 +1,6 @@
 import FETCH_FILES from "./types";
 
 export const setFiles = files => {
-  console.log(files);
   return {
     type: FETCH_FILES,
     payload: files

@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-import fetchFilesReducer from "./fetchFilesReducer";
+import filesReducer from "./filesReducer";
 
 export default combineReducers({
-  files: fetchFilesReducer
+  files: filesReducer
 });
