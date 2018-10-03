@@ -11,10 +11,9 @@ class UploadFile extends Component {
     drive: ""
   };
 
-  // correction made 
+  // correction made
   handleFileChange = event => {
     this.setState({ file: event.target.files[0] });
-
   };
 
   handleDriveChange = event => {
@@ -25,12 +24,12 @@ class UploadFile extends Component {
     event.preventDefault();
     console.log(event.target.value);
 
-   const fileWithInfo = {
-     file: this.state.file,
-     drive: this.state.drive
-   }
+    const fileWithInfo = {
+      file: this.state.file,
+      drive: this.state.drive
+    };
 
-   console.log(fileWithInfo);
+    console.log(fileWithInfo);
     this.props.uploadFile(fileWithInfo);
     this.setState({ file: "" });
     alert("File uploaded");
@@ -39,8 +38,8 @@ class UploadFile extends Component {
   render() {
     return (
       <React.Fragment>
-        <div className="d-flex flex-row w-100">
-          <div className="flex-grow-1 d-flex flex-row">
+        <div id="page" className="d-flex flex-row w-100">
+          <div className="flex-grow-1 d-flex flex-row p-4">
             <Form onSubmit={this.handleSubmit}>
               <FormGroup>
                 <Label for="file">File</Label>
@@ -48,7 +47,6 @@ class UploadFile extends Component {
                   type="file"
                   name="file"
                   id="file"
-                  
                   onChange={this.handleFileChange}
                 />
                 <FormText color="muted">Select a file to upload.</FormText>

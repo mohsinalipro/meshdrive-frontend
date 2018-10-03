@@ -1,12 +1,15 @@
 import React from "react";
 import { Button, ButtonGroup } from "reactstrap";
 import { NavLink } from "react-router-dom";
+import Logo from "../../Header/Logo/Logo";
+import "./styles.css";
 
-export default class Example extends React.Component {
+export default class LeftSideBarContent extends React.Component {
   render() {
     return (
-      <div id="sidebar-left-content">
-        <ButtonGroup vertical className="d-flex">
+      <div className="sidebar-left bg-light flex-fill p-2">
+        <Logo />
+        <ButtonGroup vertical className="d-flex mt-5">
           <NavLink exact to="/" className="btn btn-light light d-block">
             Home
           </NavLink>

@@ -1,9 +1,10 @@
 import React from "react";
 import LeftSideBarContent from "./LeftSideBarContent/LeftSideBarContent";
 import RightSideBarContent from "./RightSideBarContent/RightSideBarContent";
+import "./styles.css";
 const SideBar = props => {
   return (
-    <div style={styles}>
+    <div className="sidebar d-flex">
       {props.right ? (
         <RightSideBarContent>{props.children}</RightSideBarContent>
       ) : (
@@ -13,7 +14,4 @@ const SideBar = props => {
   );
 };
 
-const styles = {
-  minWidth: "192px"
-};
 export default SideBar;

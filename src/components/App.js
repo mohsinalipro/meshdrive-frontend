@@ -6,16 +6,14 @@ import UploadFile from "./pages/UploadFile/UploadFile";
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Router>
-          <Layout>
-            <Switch>
-              <Route path="/" exact component={Home} />
-              <Route path="/uploadfile" exact component={UploadFile} />
-            </Switch>
-          </Layout>
-        </Router>
-      </div>
+      <Router>
+        <Layout>
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/uploadfile" exact component={UploadFile} />
+          </Switch>
+        </Layout>
+      </Router>
     );
   }
 }

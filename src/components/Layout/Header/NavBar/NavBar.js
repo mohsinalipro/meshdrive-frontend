@@ -17,7 +17,7 @@ import {
   InputGroupAddon
 } from "reactstrap";
 import FAIcon from "../../../FontAwesomeIcon/FontAwesomeIcon";
-
+import "./styles.css";
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
@@ -35,12 +35,11 @@ class NavBar extends React.Component {
   render() {
     return (
       <Navbar color="white" light expand="md" className="m-3">
-        <h4>MeshDrive</h4>
         <NavbarToggler onClick={this.toggle} />
         <Collapse isOpen={this.state.isOpen} navbar>
           <Nav className="ml-auto" navbar>
             <NavItem>
-              <Form inline>
+              <Form inline className="search">
                 <InputGroup>
                   <Input />
                   <InputGroupAddon addonType="append">

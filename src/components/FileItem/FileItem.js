@@ -14,6 +14,11 @@ class FileItem extends Component {
       };
     });
   };
+
+  handleContextMenuClick = e => {
+    console.log(e);
+    console.log(this.props.id);
+  };
   render() {
     console.log(this.props);
     let driveIcon = null;
@@ -33,33 +38,40 @@ class FileItem extends Component {
         <div
           className={
             "m-2 file-item" +
-            (this.state.isActive ? " active bg-gray border-secondary" : "")
+            (this.state.isActive
+              ? " active bg-gray border-primary text-primary"
+              : "")
           }
           onClick={this.toggleActive}
         >
-          <ContextMenuTrigger  id={this.props.id}>
-            <div className="d-flex flex-wrap align-items-center">
-              <div>
-                <img src="https://via.placeholder.com/64x64" alt="" />
+          <ContextMenuTrigger id={this.props.id}>
+            <div className="d-flex flex-nowrap flex-wrap align-items-center">
+              <div className="file-item--icon  p-2">
+                <img src={require("./folder-icon.png")} alt="" />
               </div>
-              <div className="d-flex flex-column p-1">
+              <div className="d-flex flex-column p-1 file-item--info">
+                <div className="file-item--title">{this.props.name}</div>
+                <div className="file-item--size text-muted">
+                  {/* {this.props.size} */}
+                  12 Kb
+                </div>
+              </div>
+              <div className="file-item--drive-icon align-self-start ml-auto mt-1 mr-2 m-1">
                 {driveIcon}
-                <div>{this.props.name}</div>
-                <div>{this.props.size}</div>
               </div>
             </div>
           </ContextMenuTrigger>
         </div>
 
-        <ContextMenu  id={this.props.id}>
-          <MenuItem data={{ foo: "bar" }} onClick={this.handleClick}>
+        <ContextMenu id={this.props.id}>
+          <MenuItem data={{ foo: "bar" }} onClick={this.handleContextMenuClick}>
             Download
           </MenuItem>
-          <MenuItem data={{ foo: "bar" }} onClick={this.handleClick}>
+          <MenuItem data={{ foo: "bar" }} onClick={this.handleContextMenuClick}>
             Delete
           </MenuItem>
           <MenuItem divider />
-          <MenuItem data={{ foo: "bar" }} onClick={this.handleClick}>
+          <MenuItem data={{ foo: "bar" }} onClick={this.handleContextMenuClick}>
             Details
           </MenuItem>
         </ContextMenu>

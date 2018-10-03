@@ -7,17 +7,17 @@ import Footer from "./Footer/Footer";
 const Layout = props => {
   return (
     <React.Fragment>
-      <div className="d-flex flex-row">
+      <div id="main" className="d-flex flex-row flex-fill">
         <SideBar />
         <MainContent>
-          <div className="d-flex flex-column w-100">
+          <div className="d-flex flex-column flex-grow w-100">
             <Header />
             {props.children}
           </div>
         </MainContent>
       </div>
 
-      <Footer />
+      {/* <Footer /> */}
     </React.Fragment>
   );
 };
