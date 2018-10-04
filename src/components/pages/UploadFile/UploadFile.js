@@ -59,9 +59,10 @@ class UploadFile extends Component {
   render() {
     return (
       <React.Fragment>
-        <div id="page" className="d-flex flex-column w-100">
-          <h1>Upload File</h1>
-          <div className="flex-grow-1 d-flex flex-column p-4">
+        <div id="page" className="d-flex flex-row w-100">
+          <div className="flex-grow-1 d-flex flex-column pl-4 pr-4">
+            <h1>Upload File</h1>
+
             <Dropzone
               className={
                 "filedropzone shadow p-5 mb-2 bg-light rounded border-primary" +

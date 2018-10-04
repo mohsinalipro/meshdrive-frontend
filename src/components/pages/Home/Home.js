@@ -16,9 +16,10 @@ class Home extends Component {
 
     return (
       <React.Fragment>
-        <div id="page" className="d-flex flex-column w-100">
-          <h1>Home</h1>
-          <div className="flex-grow-1 d-flex flex-row">
+        <div id="page" className="d-flex flex-row w-100">
+          <div className="flex-grow-1 d-flex flex-column pl-4 pr-4">
+            <h1>Home</h1>
+
             <FilesList files={files} />
           </div>
 
