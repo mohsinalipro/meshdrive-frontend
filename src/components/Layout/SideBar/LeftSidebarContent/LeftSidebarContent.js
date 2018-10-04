@@ -1,15 +1,13 @@
 import React from "react";
-import { Button, ButtonGroup } from "reactstrap";
+import { ButtonGroup } from "reactstrap";
 import { NavLink } from "react-router-dom";
-import Logo from "../../Header/Logo/Logo";
 import "./styles.css";
 
 export default class LeftSideBarContent extends React.Component {
   render() {
     return (
       <div className="sidebar-left bg-light flex-fill p-2">
-        <Logo />
-        <ButtonGroup vertical className="d-flex mt-5">
+        <ButtonGroup vertical className="d-flex mt-2">
           <NavLink exact to="/" className="btn btn-light light d-block">
             Home
           </NavLink>

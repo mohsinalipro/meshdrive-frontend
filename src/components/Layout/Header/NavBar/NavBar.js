@@ -18,6 +18,7 @@ import {
 } from "reactstrap";
 import FAIcon from "../../../FontAwesomeIcon/FontAwesomeIcon";
 import "./styles.css";
+import Logo from "../Logo/Logo";
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
@@ -34,10 +35,11 @@ class NavBar extends React.Component {
   }
   render() {
     return (
-      <Navbar color="white" light expand="md" className="m-3">
+      <Navbar color="white" light expand="md" className="p-0">
+        <Logo />
         <NavbarToggler onClick={this.toggle} />
         <Collapse isOpen={this.state.isOpen} navbar>
-          <Nav className="ml-auto" navbar>
+          <Nav className="ml-auto pt-2 mr-2" navbar>
             <NavItem>
               <Form inline className="search">
                 <InputGroup>
