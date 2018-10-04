@@ -37,7 +37,7 @@ class FileItem extends Component {
       <React.Fragment>
         <div
           className={
-            "m-2 file-item" +
+            "file-item m-2" +
             (this.state.isActive
               ? " active bg-gray border-primary text-primary"
               : "")
@@ -61,20 +61,28 @@ class FileItem extends Component {
               </div>
             </div>
           </ContextMenuTrigger>
+          <ContextMenu id={this.props.id}>
+            <MenuItem
+              data={{ foo: "bar" }}
+              onClick={this.handleContextMenuClick}
+            >
+              Download
+            </MenuItem>
+            <MenuItem
+              data={{ foo: "bar" }}
+              onClick={this.handleContextMenuClick}
+            >
+              Delete
+            </MenuItem>
+            <MenuItem divider />
+            <MenuItem
+              data={{ foo: "bar" }}
+              onClick={this.handleContextMenuClick}
+            >
+              Details
+            </MenuItem>
+          </ContextMenu>
         </div>
-
-        <ContextMenu id={this.props.id}>
-          <MenuItem data={{ foo: "bar" }} onClick={this.handleContextMenuClick}>
-            Download
-          </MenuItem>
-          <MenuItem data={{ foo: "bar" }} onClick={this.handleContextMenuClick}>
-            Delete
-          </MenuItem>
-          <MenuItem divider />
-          <MenuItem data={{ foo: "bar" }} onClick={this.handleContextMenuClick}>
-            Details
-          </MenuItem>
-        </ContextMenu>
       </React.Fragment>
     );
   }

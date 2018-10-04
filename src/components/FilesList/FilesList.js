@@ -5,8 +5,6 @@ import FileItem from "../../components/FileItem/FileItem";
 const FilesList = ({ files }) => {
   const emptyMessage = <p> Empty Dashboard </p>;
 
-  console.log(files);
-
   const filesList = files.map(element => {
     return (
       <FileItem
@@ -20,7 +18,7 @@ const FilesList = ({ files }) => {
   });
 
   return (
-    <div className="d-flex flex-row flex-wrap align-items-start p-2">
+    <div className="files-list d-flex flex-row flex-wrap">
       {files.length === 0 ? emptyMessage : filesList}
     </div>
   );
