@@ -39,6 +39,7 @@ class UploadFile extends Component {
     return (
       <React.Fragment>
         <div id="page" className="d-flex flex-row w-100">
+          <h1>Upload File</h1>
           <div className="flex-grow-1 d-flex flex-row p-4">
             <Form onSubmit={this.handleSubmit}>
               <FormGroup>
