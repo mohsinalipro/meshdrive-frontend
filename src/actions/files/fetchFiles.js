@@ -2,8 +2,9 @@ import { FETCH_FILES } from "./types";
 
 export const setFiles = files => {
   const drives = ["googledrive", "onedrive", "dropbox"];
-  files.forEach((e, i) => {
-    e.drive = drives[i % 3];
+  files.forEach((file, i) => {
+    file.drive = drives[i % 3];
+    file.active = false;
   });
 
   return {

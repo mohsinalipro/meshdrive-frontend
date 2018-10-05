@@ -1,28 +1,48 @@
 import React, { Component } from "react";
 import FAIcon from "../../components/FontAwesomeIcon/FontAwesomeIcon";
 import { ContextMenu, MenuItem, ContextMenuTrigger } from "react-contextmenu";
+// import toggleFileActive from "../../actions/files/toggleFileActive";
+import setActiveFile from "../../actions/activeFilesIds/setActiveFile";
+import unsetActiveFile from "../../actions/activeFilesIds/unsetActiveFile";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+
 import "./styles.css";
 class FileItem extends Component {
-  state = {
-    isActive: false
-  };
+  constructor(props) {
+    super(props);
 
-  toggleActive = e => {
-    this.setState(prevState => {
-      return {
-        isActive: !prevState.isActive
-      };
-    });
+    this.state = {
+      active: this.props.isFileActive
+    };
+    this.file = this.props.file;
+  }
+  toggleActive = () => {
+    this.setState(
+      prevState => {
+        return {
+          active: !prevState.active
+        };
+      },
+      () => {
+        if (this.state.active) {
+          this.props.setActiveFile(this.file.id);
+        } else {
+          console.log(this.state.active);
+
+          this.props.unsetActiveFile(this.file.id);
+        }
+      }
+    );
   };
 
   handleContextMenuClick = e => {
     console.log(e);
-    console.log(this.props.id);
+    console.log(this.file.id);
   };
   render() {
-    console.log(this.props);
     let driveIcon = null;
-    switch (this.props.drive) {
+    switch (this.file.drive) {
       case "googledrive":
         driveIcon = <FAIcon icon="google" fab />;
         break;
@@ -38,19 +58,19 @@ class FileItem extends Component {
         <div
           className={
             "file-item m-2" +
-            (this.state.isActive
+            (this.state.active
               ? " active bg-gray border-primary text-primary"
               : "")
           }
           onClick={this.toggleActive}
         >
-          <ContextMenuTrigger id={this.props.id}>
+          <ContextMenuTrigger id={this.file.id}>
             <div className="d-flex flex-nowrap flex-wrap align-items-center">
               <div className="file-item--icon  p-2">
                 <img src={require("./folder-icon.png")} alt="" />
               </div>
               <div className="d-flex flex-column p-1 file-item--info">
-                <div className="file-item--title">{this.props.name}</div>
+                <div className="file-item--title">{this.file.name}</div>
                 <div className="file-item--size text-muted">
                   {/* {this.props.size} */}
                   12 Kb
@@ -61,7 +81,7 @@ class FileItem extends Component {
               </div>
             </div>
           </ContextMenuTrigger>
-          <ContextMenu id={this.props.id}>
+          <ContextMenu id={this.file.id}>
             <MenuItem
               data={{ foo: "bar" }}
               onClick={this.handleContextMenuClick}
@@ -88,4 +108,17 @@ class FileItem extends Component {
   }
 }
 
-export default FileItem;
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(
+    {
+      setActiveFile,
+      unsetActiveFile
+    },
+    dispatch
+  );
+}
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(FileItem);
