@@ -6,14 +6,12 @@ import PropTypes from "prop-types";
 import FilesList from "../../FilesList/FilesList";
 
 class Home extends Component {
-  componentDidMount() {
-    console.log(this.props);
-    // this.props.fetchFiles();
-  }
-
   render() {
-    const files = this.props.files;
-
+    const activeFiles = this.props.files.filter(file => {
+      return this.props.activeFileIds.indexOf(file.id) !== -1;
+    });
+    const lastActiveFile = activeFiles[activeFiles.length - 1];
+    const activeFileIds = activeFiles.map(file => file.id);
     return (
       <React.Fragment>
         <div id="page" className="d-flex flex-row w-100">
@@ -23,24 +21,23 @@ class Home extends Component {
             <FilesList />
           </div>
 
-          <SideBar right>Right Home Sidebar </SideBar>
+          <SideBar right>
+            {activeFiles.length == 0
+              ? "No file selected"
+              : activeFiles.length == 1
+                ? `Single file selected: ${lastActiveFile.id}`
+                : `Multiple files selected: ${activeFileIds}`}
+          </SideBar>
         </div>
       </React.Fragment>
     );
   }
 }
 
-// Home.propTypes = {
-//   files: PropTypes.array.isRequired,
-//   fetchFiles: PropTypes.func.isRequired
-// };
-// function mapStateToProps(state) {
-//   return {
-//     files: state.files
-//   };
-// }
-// export default connect(
-//   mapStateToProps,
-//   { fetchFiles }
-// )(Home);
-export default Home;
+function mapStateToProps({ files, activeFileIds }) {
+  return {
+    files,
+    activeFileIds
+  };
+}
+export default connect(mapStateToProps)(Home);

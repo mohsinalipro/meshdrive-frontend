@@ -1,5 +1,5 @@
-import { SET_ACTIVE_FILE } from "../actions/activeFiles/types";
-import { UNSET_ACTIVE_FILE } from "../actions/activeFiles/types";
+import { SET_ACTIVE_FILE } from "../actions/activeFilesIds/types";
+import { UNSET_ACTIVE_FILE } from "../actions/activeFilesIds/types";
 
 const initialActiveFileIdsState = [];
 export default function(state = initialActiveFileIdsState, action) {
